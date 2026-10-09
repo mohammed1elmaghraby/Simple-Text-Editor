@@ -49,6 +49,6 @@ A lightweight console-based text editor built in Java that implements **Undo** a
    ```
 
    ### Author
-        Mohammed Elmaghraby
+     ## Mohammed Elmaghraby
 
    
