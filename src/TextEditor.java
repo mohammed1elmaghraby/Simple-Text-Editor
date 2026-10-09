@@ -1,20 +1,20 @@
 public class TextEditor {
-    private String currentText;
+    private StringBuilder currentText;
     private MyStack undoStack;
     private MyStack redoStack;
 
     public TextEditor() {
-        this.currentText="";
+        this.currentText= new StringBuilder();
         this.undoStack = new MyStack();
         this.redoStack = new MyStack();
     }
 
     public void write(String newText) {
-        undoStack.push(currentText);
+        undoStack.push(String.valueOf(currentText));
         if (!currentText.isEmpty()) {
-            currentText += " ";
+            currentText.append(" ");
         }
-        currentText += newText;
+        currentText.append(newText);
         redoStack.clear();
     }
 
@@ -23,8 +23,8 @@ public class TextEditor {
             System.out.println("Nothing to undo!");
             return;
         }
-        redoStack.push(currentText);
-        currentText = undoStack.pop();
+        redoStack.push(String.valueOf(currentText));
+        currentText = new StringBuilder(undoStack.pop());
     }
 
     public void redo() {
@@ -32,8 +32,8 @@ public class TextEditor {
             System.out.println("Nothing to redo!");
             return;
         }
-        undoStack.push(currentText);
-        currentText = redoStack.pop();
+        undoStack.push(String.valueOf(currentText));
+        currentText = new StringBuilder(redoStack.pop());
     }
 
     public void printText() {
