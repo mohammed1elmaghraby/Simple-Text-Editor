@@ -44,7 +44,7 @@ A lightweight console-based text editor built in Java that implements **Undo** a
 ### Compilation & Running
 1. Clone the repository:
    ```bash
-   git clone [https://github.com/mohammed1elmaghraby/Simple-Text-Editor.git](https://github.com/mohammed1elmaghraby/Simple-Text-Editor.git)
+   git clone https://github.com/mohammed1elmaghraby/Simple-Text-Editor.git
    cd Simple-Text-Editor
    ```
 
