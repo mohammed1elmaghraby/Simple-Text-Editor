@@ -39,7 +39,7 @@ A lightweight console-based text editor built in Java that implements **Undo** a
 ## Getting Started
 
 ### Prerequisites
-- Java Development Kit (JDK 8 or higher)
+- Java Development Kit (JDK 15 or higher)
 
 ### Compilation & Running
 1. Clone the repository:
