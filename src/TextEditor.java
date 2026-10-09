@@ -35,7 +35,57 @@ public class TextEditor {
         }
         undoStack.push(String.valueOf(currentText));
         currentText.setLength(0);
-        currentText.append(redoStack.pop()); 
+        currentText.append(redoStack.pop());
+    }
+
+    public void find (String word) {
+        int index = currentText.indexOf(word);
+
+        if (index != -1) System.out.println(word + " Found at: " +index);
+
+        else System.out.println("NOT found");
+    }
+
+    public void replace (String target, String replacement) {
+        int index = currentText.indexOf(target);
+
+        if (index == -1 ) {
+            System.out.println(target+" NOT found");
+            return;
+        }
+
+        undoStack.push(currentText.toString());
+        currentText.replace(index, index+replacement.length(), replacement);
+        redoStack.clear();;
+    }
+
+    public void delete(int count) {
+        if (currentText.isEmpty() || count <= 0) {
+            System.out.println("Nothing to delete!!");
+            return;
+        }
+
+        undoStack.push(currentText.toString());
+        int start = Math.max(0, currentText.length() - count);
+        int end = currentText.length();
+
+        currentText.delete(start, end);
+        redoStack.clear();
+    }
+
+    public void delete (String word) {
+        int index = currentText.indexOf(word);
+
+        if (index != -1) {
+            undoStack.push(currentText.toString());
+            int start = index;
+            int end = index + word.length();
+
+            currentText.delete(start, end);
+            redoStack.clear();
+        }
+
+        else System.out.println("The word does NOT exist");
     }
 
     public void printText() {
