@@ -55,7 +55,7 @@ public class TextEditor {
         }
 
         undoStack.push(currentText.toString());
-        currentText.replace(index, index+replacement.length(), replacement);
+        currentText.replace(index, index + target.length(), replacement);
         redoStack.clear();;
     }
 
