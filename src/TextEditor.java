@@ -24,7 +24,8 @@ public class TextEditor {
             return;
         }
         redoStack.push(String.valueOf(currentText));
-        currentText = new StringBuilder(undoStack.pop());
+        currentText.setLength(0);
+        currentText.append(undoStack.pop());
     }
 
     public void redo() {
@@ -33,7 +34,8 @@ public class TextEditor {
             return;
         }
         undoStack.push(String.valueOf(currentText));
-        currentText = new StringBuilder(redoStack.pop());
+        currentText.setLength(0);
+        currentText.append(redoStack.pop()); 
     }
 
     public void printText() {
